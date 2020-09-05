@@ -42,3 +42,12 @@ export const getMovies = () => {
 		}, 50);
 	});
 };
+
+export const getMovieByID = (movieID) => {
+	return new Promise((resolve, reject) => {
+		const movieIndex = MOVIE_DATA.findIndex((movie) => movie.id === movieID);
+		const movie = MOVIE_DATA[movieIndex];
+
+		setTimeout(() => resolve(movie), 50);
+	});
+};
