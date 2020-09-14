@@ -19,7 +19,12 @@ const Movie = (props) => {
 					</a>
 				</p>
 			</div>
-			<p>{movie.longDesc}</p>
+			<p className='desc-text'>{movie.longDesc}</p>
+			<style jsx>{`
+				.desc-text {
+					font-size: 21px;
+				}
+			`}</style>
 		</div>
 	);
 };
