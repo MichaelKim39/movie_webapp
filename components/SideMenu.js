@@ -1,18 +1,24 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Modal from "./Modal";
 import MovieCreateForm from "./MovieCreateForm";
 import { createMovie } from "../actions";
 
 const SideMenu = ({ appName, categories }) => {
+	let modal = null;
+	const router = useRouter();
+
 	const handleCreateMovie = (movie) => {
 		createMovie(movie).then((movies) => {
-			console.log(JSON.stringify(movies));
+			modal.closeModal();
+			// Next Router navigates to particular URL or file in directory
+			router.push("/");
 		});
 	};
 
 	return (
 		<div>
-			<Modal showSubmit={false}>
+			<Modal ref={(elem) => (modal = elem)} showSubmit={false}>
 				<MovieCreateForm onSubmit={handleCreateMovie} />
 			</Modal>
 			<h1 className='my-4'>{appName}</h1>
