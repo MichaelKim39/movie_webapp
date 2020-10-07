@@ -1,14 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const MovieCreateForm = ({ onSubmit }) => {
-	const [form, setForm] = useState({
+const MovieCreateForm = ({ onSubmit, initialData }) => {
+	const DEFAULT_DATA = {
 		name: "",
 		description: "",
 		rating: "",
 		image: "",
 		cover: "",
 		longDesc: "",
-	});
+	};
+
+	const formData = initialData ? initialData : DEFAULT_DATA;
+	const [form, setForm] = useState(formData);
+
+	// useEffect(() => {
+	// 	if (initialData) {
+	// 		console.log("Setting form to initial data: ", initialData);
+	// 		setForm(initialData);
+	// 	}
+	// 	console.log(JSON.stringify(form));
+	// }, [initialData]);
 
 	const handleChange = (event) => {
 		const target = event.target;

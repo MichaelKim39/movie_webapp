@@ -1,11 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { getMovieByID, deleteMovie } from "../../actions";
+import { getMovieByID, deleteMovie } from "../../../actions";
 
-const Movie = (props) => {
+const Movie = ({ movie }) => {
 	const router = useRouter();
-	const id = router.query;
-	const { movie } = props;
+	const { id } = router.query;
 
 	const handleDeleteMovie = (id) => {
 		deleteMovie(id).then(() => {
@@ -31,6 +30,14 @@ const Movie = (props) => {
 						role='button'
 					>
 						Delete
+					</button>
+					<button
+						onClick={() => router.push(`/movies/${id}/edit`)}
+						className='btn btn-warning btn-lg ml-1'
+						href='#'
+						role='button'
+					>
+						Edit
 					</button>
 				</p>
 			</div>
