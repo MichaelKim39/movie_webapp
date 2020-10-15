@@ -33,7 +33,10 @@ export const getMovieByID = (movieID) => {
 export const updateMovie = (movie) => {
 	return axios
 		.patch(`${BASE_URL}/api/v1/movies/${movie.id}`, movie)
-		.then((res) => res.data);
+		.then((res) => {
+			console.log("Result: ", res);
+			res.data;
+		});
 };
 
 export const createMovie = (updatedMovie) => {

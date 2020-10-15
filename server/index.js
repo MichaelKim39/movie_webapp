@@ -45,10 +45,10 @@ app.prepare().then(() => {
 		});
 	});
 
-	server.patch("/api/v1/movies/:id", (req, res) => {
-		const { id } = req.params;
-		return res.json({ message: `Editing Post of id ${id}` });
-	});
+	// server.patch("/api/v1/movies/:id", (req, res) => {
+	// 	const { id } = req.params;
+	// 	return res.json({ message: `Editing Post of id ${id}` });
+	// });
 
 	server.delete("/api/v1/movies/:id", (req, res) => {
 		const { id } = req.params;
