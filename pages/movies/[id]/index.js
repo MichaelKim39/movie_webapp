@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { getMovieByID, deleteMovie } from "../../../actions";
+import Link from "next/link";
 
 const Movie = ({ movie }) => {
 	const router = useRouter();
@@ -31,14 +32,11 @@ const Movie = ({ movie }) => {
 					>
 						Delete
 					</button>
-					<button
-						onClick={() => router.push(`/movies/${id}/edit`)}
-						className='btn btn-warning btn-lg ml-1'
-						href='#'
-						role='button'
-					>
-						Edit
-					</button>
+					<Link href='/movies/[id]/edit' as={`/movies/${id}/edit`}>
+						<button className='btn btn-warning btn-lg ml-1' role='button'>
+							Edit
+						</button>
+					</Link>
 				</p>
 			</div>
 			<p className='desc-text'>{movie.longDesc}</p>

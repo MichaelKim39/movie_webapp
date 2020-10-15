@@ -5,6 +5,7 @@ const BASE_URL = "http://localhost:3000";
 const MOVIE_DATA = [];
 
 const CATEGORY_DATA = [
+	{ id: "c-0", name: "All" },
 	{ id: "c-1", name: "Drama" },
 	{ id: "c-2", name: "Action" },
 	{ id: "c-3", name: "Adventure" },

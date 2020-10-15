@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const MovieCreateForm = ({ onSubmit, initialData }) => {
+const MovieCreateForm = ({ onSubmit, initialData, submitText = "Create" }) => {
 	const DEFAULT_DATA = {
 		name: "",
 		description: "",
@@ -151,7 +151,7 @@ const MovieCreateForm = ({ onSubmit, initialData }) => {
 				className='btn btn-primary'
 				onClick={handleSubmitForm}
 			>
-				Submit
+				{submitText}
 			</button>
 		</form>
 	);

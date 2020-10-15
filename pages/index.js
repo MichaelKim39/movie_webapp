@@ -5,18 +5,39 @@ import MovieList from "../components/MovieList";
 import { getMovies, getCategories } from "../actions";
 
 const Home = ({ movies, images, categories }) => {
+	const [filter, setFilter] = useState("All");
+
+	const changeCategory = (category) => {
+		setFilter(category);
+	};
+
+	const filterMovies = (movies) => {
+		if (filter === "All") {
+			return movies;
+		}
+		return movies.filter((movie) => {
+			return movie.genre && movie.genre.includes(filter);
+		});
+	};
+
 	return (
 		<div>
 			<div className='home-page'>
 				<div className='container'>
 					<div className='row'>
 						<div className='col-lg-3'>
-							<SideMenu appName={"Categories"} categories={categories} />
+							<SideMenu
+								changeCategory={changeCategory}
+								activeCategory={filter}
+								appName={"Categories"}
+								categories={categories}
+							/>
 						</div>
 						<div className='col-lg-9'>
 							<Carousel images={images} />
+							<h1>Displaying {filter} Movies</h1>
 							<div className='row'>
-								<MovieList movies={movies || []} />
+								<MovieList movies={filterMovies(movies) || []} />
 							</div>
 						</div>
 					</div>
