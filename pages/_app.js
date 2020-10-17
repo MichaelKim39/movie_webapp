@@ -3,6 +3,8 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+import "../styles/index.scss";
+
 class MovieApp extends App {
 	static async getInitialProps(appContext) {
 		// * Execute get initial props of the page we are navigating to and makes props available to the page
@@ -49,7 +51,8 @@ class MovieApp extends App {
 				<style jsx>
 					{`
 						.base-page {
-							padding-top: 80px;
+							padding-top: 100px;
+							padding-bottom: 200px;
 						}
 					`}
 				</style>

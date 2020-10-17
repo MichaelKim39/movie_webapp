@@ -101,6 +101,10 @@ app.prepare().then(() => {
 		// NextJS handling requests and providing pages
 		return handle(req, res);
 	});
+	server.post("*", (req, res) => {
+		// NextJS handling requests and providing pages
+		return handle(req, res);
+	});
 
 	const PORT = process.env.PORT || 3000;
 
